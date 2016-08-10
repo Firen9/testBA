@@ -27,7 +27,9 @@ class MyGui(tkinter.Frame):
         self.end.pack(side="right")
         self.verbinden = tkinter.Button()
         self.verbinden["text"] = "Verbindungsaufbau"
-        self.verbinden["command"] = VerbindungsAufbau.VerbindungsAufbau.aufbau(self.ip.get(), 21, "Hey", 5)
+        intPort =int(self.port.get())
+        auf = lambda: VerbindungsAufbau.VerbindungsAufbau.aufbau(self.ip.get(),intPort, "Hey", 5)
+        self.verbinden["command"] = auf
         self.verbinden.pack(side="left")
 
 
