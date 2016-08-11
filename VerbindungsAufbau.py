@@ -10,4 +10,4 @@ class VerbindungsAufbau():
             for i in range(anzahl):
                 s.send((nachricht+"\n").encode())
       except ConnectionRefusedError:
-          print("Leider konnte keine Verbindung hergsetellt werden")
+          print("Leider konnte keine Verbindung hergsetellt werden. \nBitte Überprüfen Sie ob die IP und der Port richtig sind")
