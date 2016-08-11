@@ -10,25 +10,28 @@ class MyGui(tkinter.Frame):
 
     def createWidgets(self):
         # Eingabefelder
+        # Eingabefeld IP
         self.ipEntry = tkinter.Entry(self)
-        self.portEntry = tkinter.Entry(self)
         self.ipEntry.pack()
-        self.portEntry.pack()
         self.ip = tkinter.StringVar()
         self.ip.set("127.0.0.1")
         self.ipEntry["textvariable"] = self.ip
+        # Eingabefeld Port
+        self.portEntry = tkinter.Entry(self)
+        self.portEntry.pack()
         self.port = tkinter.StringVar()
-        self.port.set("21")
+        self.port.set("212")
         self.portEntry["textvariable"] = self.port
         # Buttons
+        # Stop Button
         self.end = tkinter.Button(self)
         self.end["text"] = "Stop"
         self.end["command"] = self.quit
         self.end.pack(side="right")
+        # Verbindungsbutton
         self.verbinden = tkinter.Button()
         self.verbinden["text"] = "Verbindungsaufbau"
-        intPort =int(self.port.get())
-        auf = lambda: VerbindungsAufbau.VerbindungsAufbau.aufbau(self.ip.get(),intPort, "Hey", 5)
+        auf = lambda: VerbindungsAufbau.VerbindungsAufbau.aufbau(self.ip.get(), int(self.port.get()), "Hey", 5)
         self.verbinden["command"] = auf
         self.verbinden.pack(side="left")
 
@@ -36,5 +39,3 @@ class MyGui(tkinter.Frame):
         root = tkinter.Tk()
         app = MyGui(root)
         app.mainloop()
-
-
