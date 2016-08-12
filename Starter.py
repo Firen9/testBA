@@ -2,4 +2,6 @@ import Gui
 
 
 class Starter():
-    Gui.MyGui.starten()
+
+    app = Gui.MyGui()
+    app.mainloop()
