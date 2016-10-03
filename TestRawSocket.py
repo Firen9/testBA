@@ -1,9 +1,3 @@
-'''
-    Raw sockets on Linux
-
-    Silver Moon (m00n.silv3r@gmail.com)
-'''
-
 # some imports
 import socket, sys
 from struct import *
@@ -15,11 +9,11 @@ def checksum(msg):
 
     # loop taking 2 characters at a time
     for i in range(0, len(msg), 2):
-        w = ord(msg[i]) + (ord(msg[i + 1]) << 8)
+        w = ord(chr(msg[i])) + (ord(chr(msg[i + 1])) << 8)
         s = s + w
 
-    s = (s >> 16) + (s & 0xffff);
-    s = s + (s >> 16);
+    s = (s >> 16) + (s & 0xffff)
+    s = s + (s >> 16)
 
     # complement and mask to 4 byte short
     s = ~s & 0xffff
@@ -39,7 +33,7 @@ except socket.error as msg:
 # s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 
 # now start constructing the packet
-packet = '';
+packet = ''
 
 source_ip = '127.0.0.1'
 dest_ip = '127.0.0.1'  # or socket.gethostbyname('www.google.com')
@@ -96,8 +90,8 @@ placeholder = 0
 protocol = socket.IPPROTO_TCP
 tcp_length = len(tcp_header) + len(user_data)
 
-psh = pack('!4s4sBBH', source_address, dest_address, placeholder, protocol, tcp_length);
-psh = psh + tcp_header + user_data;
+psh = pack('!4s4sBBH', source_address, dest_address, placeholder, protocol, tcp_length)
+psh = psh + tcp_header + user_data
 
 tcp_check = checksum(psh)
 # print tcp_checksum
