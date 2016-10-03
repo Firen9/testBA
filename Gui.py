@@ -48,7 +48,7 @@ class MyGui(tkinter.Frame):
         self.verbinden["command"] = auf
         self.verbinden.pack(side="left")
 
-    def starten():
-        root = tkinter.Tk()
-        app = MyGui(root)
-        app.mainloop()
+    #def starten():
+     #   root = tkinter.Tk()
+      #  app = MyGui(root)
+       # app.mainloop()
