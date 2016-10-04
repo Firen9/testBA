@@ -9,7 +9,7 @@ def checksum(msg):
 
     # loop taking 2 characters at a time
     for i in range(0, len(msg), 2):
-        w = ord(chr(msg[i])) + (ord(chr(msg[i + 1])) << 8)
+        w = ord(msg[i]) + (ord(msg[i + 1]) << 8)
         s = s + w
 
     s = (s >> 16) + (s & 0xffff)
@@ -35,8 +35,8 @@ except socket.error as msg:
 # now start constructing the packet
 packet = ''
 
-source_ip = '127.0.0.1'
-dest_ip = '127.0.0.1'  # or socket.gethostbyname('www.google.com')
+source_ip = '192.168.178.26'
+dest_ip = '192.168.178.26'  # or socket.gethostbyname('www.google.com')
 
 # ip header fields
 ip_ihl = 5
