@@ -1,5 +1,5 @@
 from Tkinter import *
-fields = 'IP', 'DPort', 'SPort', 'Country'
+fields = 'IP', 'DPort', 'SPort', 'Flag'
 
 def fetch(entries):
    for entry in entries:
