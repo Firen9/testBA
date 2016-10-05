@@ -1,5 +1,5 @@
 from Tkinter import *
-fields = 'IP', 'DPort', 'SPort', 'Flag'
+fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urggptr', 'options'
 
 def fetch(entries):
    for entry in entries:
