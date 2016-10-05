@@ -4,12 +4,14 @@ from scapy.all import IP,send,TCP
 fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urggptr', 'options'
 
 def fetch(entries):
-   befehle =[]
-   i=0
-   for entry in entries:
-      befehle=entry[1].get()
-      print(befehle[i])
+   a=[]
 
+   for entry in entries:
+      a.append(entry[1].get())
+     # print(entry[1].get())
+
+   for x in range(len(a)):
+      print(a[x])
 
 
 
