@@ -1,5 +1,6 @@
 from Tkinter import *
 from scapy.all import IP,send,TCP
+import ScapyCaller
 
 fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urggptr', 'options'
 
@@ -10,15 +11,7 @@ def fetch(entries):
       eingabe.append(entry[1].get())
      # print(entry[1].get())
 
-   if not eingabe[0]:
-      print("Geben Sie bitte eine IP ein")
-   else:
-      packet = IP(dst=eingabe[0])/TCP()
-   if not eingabe[1]:
-      print("Gib Port ein")
-   else:
-      packet.dport=int(eingabe[1])
-      send(packet)
+   ScapyCaller.createPacket(eingabe)
 
 
 
