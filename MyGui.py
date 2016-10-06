@@ -2,7 +2,7 @@ from Tkinter import *
 from scapy.all import IP,send,TCP
 import ScapyCaller
 
-fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urggptr', 'options'
+fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urgptr', 'options'
 
 def fetch(entries):
    eingabe=[]
@@ -30,6 +30,7 @@ def makeform(root, fields):
 
 if __name__ == '__main__':
    root = Tk()
+   root.title("StartScreen")
    ents = makeform(root, fields)
    root.bind('<Return>', (lambda event, e=ents: fetch(e)))
    b1 = Button(root, text='Verbinden', command=(lambda e=ents: fetch(e)))
