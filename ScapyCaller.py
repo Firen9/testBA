@@ -29,11 +29,12 @@ def createPacket(werte):
         packet.options = werte[8]
     if ip and port:
         antwort=sr1(packet)
-        answerWindow(antwort.show())
+
+        answerWindow(antwort)
     else:
         print("IP oder Port eingeben")
 
 def answerWindow(antwortPacket):
     answer = MyGui.Toplevel()
-    msg = Message(answer, text=antwortPacket)
+    msg = Message(answer, text=antwortPacket.show())
     msg.pack()
