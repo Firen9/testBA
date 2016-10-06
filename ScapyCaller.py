@@ -30,11 +30,18 @@ def createPacket(werte):
     if ip and port:
         antwort=sr1(packet)
 
-        answerWindow(antwort)
+        answerWindow(antwort.show(True))
     else:
         print("IP oder Port eingeben")
 
 def answerWindow(antwortPacket):
     answer = MyGui.Toplevel()
-    msg = Message(answer, text=antwortPacket.show())
+    msg = Message(answer, text=antwortPacket)
+
     msg.pack()
+
+
+def test():
+    hallo = "test"
+    for i in range(10):
+        print(hallo)
