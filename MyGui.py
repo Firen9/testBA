@@ -2,7 +2,7 @@ from Tkinter import *
 from scapy.all import IP,send,TCP
 import ScapyCaller
 
-fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urgptr', 'options'
+fields = 'IP', 'DPort', 'SPort', 'ACK', 'dataofs', 'reserved', 'flags', 'window', 'urgptr', 'options','test'
 
 def fetch(entries):
    eingabe=[]

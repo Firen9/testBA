@@ -1,4 +1,4 @@
-from scapy.all import IP,send,TCP,sr1
+from scapy.all import *
 import MyGui
 from Tkinter import *
 
@@ -30,7 +30,7 @@ def createPacket(werte):
     if ip and port:
         antwort=sr1(packet)
 
-        answerWindow(antwort.show(True))
+        answerWindow(test())
     else:
         print("IP oder Port eingeben")
 
@@ -43,5 +43,4 @@ def answerWindow(antwortPacket):
 
 def test():
     hallo = "test"
-    for i in range(10):
-        print(hallo)
+    print(hallo)
